@@ -11,13 +11,13 @@ import cv2
 current_path = os.path.dirname(os.path.abspath(__file__))
 
 # mask in nii.gz format
-path = current_path+"/merge_niigz_filtered_zoom"
+path = current_path + "/merge_niigz_filtered_zoom"
 
 # json crop position
-lndb_crop_pos = '/notebooks/VOLUME_sdb_5TB/script/create_lndb_csv/newcroplndb.json'
+lndb_crop_pos = current_path + '/newcroplndb.json'
 
 # output file name or path
-outfile = 'result/LNDb_annotation_075.csv'
+outfile = current_path+'/result/LNDb_annotation_075.csv'
 
 def progress(count, total, status=''):
     import sys 
