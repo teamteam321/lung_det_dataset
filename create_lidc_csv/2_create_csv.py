@@ -7,7 +7,7 @@ import json
 current_path = os.path.dirname(os.path.abspath(__file__))
 
 # merged label (from)
-merged_label_3d = "/temp"+"/3d_union.json"
+merged_label_3d = current_path + "/temp"+"/3d_union.json"
 
 # new spacing
 new_spacing = 0.75
