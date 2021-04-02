@@ -29,7 +29,7 @@ tfrecord_out_path = current_path + '/final_dataset/' + dataset_name
 model_name = 'efficientdet-d2'
 ckpt_path = '/notebooks/Test_Env/automl3/efficientdet-d2'
 # dir name must contains 'foldx' -- will be raplaced by fold number IE. fold1, fold2...
-train_model_dir = '/notebooks/VOLUME_sdb_5TB/EFF_RESULT/D2_075_foldx_new'
+train_model_dir = '/notebooks/VOLUME_sdb_5TB/EFF_RESULT/'+ dataset_name + '_foldx_result'
 
 
 #fixed path
