@@ -10,6 +10,9 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 # csv contains both info from 2 dataset
 csv_path = current_path+'/input_merge_csv/merge075.csv'
 
+# total fold , must be equal to json file in /reference
+fold_num = 5
+
 # output path
 dataset_name = 'new_dataset_test2'
 output_path = current_path+'/fold_result/' + dataset_name
@@ -104,7 +107,7 @@ def run_fold(f):
     --train_batch_size=3 --hparams="num_classes=1"\n')
     
 
-for i in range (0,5):
+for i in range (0,fold_num):
     run_fold(i+1)
     #save validation pice on every fold
     copy_validation.copy_infer(i+1,image_path_lidc,image_path_lndb,image_path_infer,output_path)
