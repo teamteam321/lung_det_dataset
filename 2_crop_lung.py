@@ -15,8 +15,12 @@ import os
 import csv
 import multiprocessing
 from multiprocessing import Pool
-temp_dir = '_temp'
+
+niigz_path = '/notebooks/VOLUME_sdb_5TB/NIFTI_075/LNDb/*.nii.gz'
 out_json = '_LIDC_crop_position.json'
+
+
+temp_dir = '_temp'
 current_path = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -98,7 +102,7 @@ def croop(paths):
 
 if __name__ == '__main__':
     
-    fname = glob.glob('/notebooks/VOLUME_sdb_5TB/NIFTI_075/LNDb/*.nii.gz')
+    fname = glob.glob(niigz_path)
     
     fname = fname[:5]
     
