@@ -18,6 +18,7 @@ from multiprocessing import Pool
 
 niigz_path = '/notebooks/VOLUME_sdb_5TB/NIFTI_075/LNDb/*.nii.gz'
 out_json = '_LIDC_crop_position.json'
+thread_num = 2
 
 
 temp_dir = '_temp'
@@ -115,9 +116,9 @@ if __name__ == '__main__':
     #for t in fname:
         #print(os.path.basename(t))
     #    croop(t)
-    processes=multiprocessing.cpu_count()
+    #processes=multiprocessing.cpu_count()
     
-    with Pool(processes) as pool:
+    with Pool(thread_num) as pool:
         pool.map(croop, fname) 
     
         
