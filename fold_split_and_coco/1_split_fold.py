@@ -15,7 +15,7 @@ fold_num = 5
 
 # output path
 dataset_name = 'new_dataset_test2'
-output_path = current_path+'/fold_result/' + dataset_name
+
 
 #picture path
 image_path_lidc = current_path+"/OUTPUT_PNG/LIDC/"
@@ -25,7 +25,7 @@ image_path_infer = current_path+'/OUTPUT_PNG/INFER_075_'
 
 # coco tfrecord
 efficientdet_path = '/notebooks/Test_Env/automl/efficientdet/'
-tfrecord_out_path = current_path + '/final_dataset/' + dataset_name
+
 
 
 # train script
@@ -36,6 +36,8 @@ train_model_dir = '/notebooks/VOLUME_sdb_5TB/EFF_RESULT/'+ dataset_name + '_fold
 
 
 #fixed path
+output_path = current_path+'/fold_result/' + dataset_name
+tfrecord_out_path = current_path + '/final_dataset/' + dataset_name
 efficientdet_main = efficientdet_path + 'main.py'
 coco_tfrecord = efficientdet_path + '/dataset/create_coco_tfrecord.py'
 
@@ -100,7 +102,7 @@ def run_fold(f):
     --training_file_pattern='+tfrecord_out_path+'/'+fold+'/train/*.tfrecord \
     --validation_file_pattern='+tfrecord_out_path+'/'+fold+'/val/*.tfrecord \
     --model_name='+model_name+' --backbone_ckpt='+ckpt_path+' \
-    --model_dir='+train_model_dir.replace('foldx',fold)+' \
+    --model_dir='+train_model_dir.replace('_foldx_','_'+fold+'_')+' \
     --num_examples_per_epoch='+str(train_images_count)+' \
     --eval_samples='+str(val_images_count)+' \
     --num_epochs=8 \
@@ -112,15 +114,6 @@ for i in range (0,fold_num):
     #save validation pice on every fold
     copy_validation.copy_infer(i+1,image_path_lidc,image_path_lndb,image_path_infer,output_path)
     
-
-
-
-
-
-
-
-
-
 
 
 
